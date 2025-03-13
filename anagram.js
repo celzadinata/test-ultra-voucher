@@ -41,13 +41,13 @@ function anagram(input) {
   for (let i = 0; i < input.length; i++) {
     for (let j = 0; j < input.length; j++) {
       if (splitToArray(input[i]).toString() == splitToArray(input[j]).toString()) {
-        arrTemp[i] = arrTemp[i] + input[j] + ", ";
+        arrTemp[i] = arrTemp[i] + input[j] + " ";
       }
     }
     arrTemp[i] = arrTemp[i].replace("undefined", "").trim();
 
     let stringTemp = "";
-    for (let j = 0; j < arrTemp[i].length - 1; j++) {
+    for (let j = 0; j < arrTemp[i].length; j++) {
       stringTemp += arrTemp[i][j];
     }
 
@@ -55,7 +55,7 @@ function anagram(input) {
   }
 
   for (let i = 0; i < arrTemp.length; i++) {
-    result[i] = [arrTemp[i]];
+    result[i] = arrTemp[i].split(" ");
   }
 
   return removeDuplicate(result);
@@ -64,6 +64,5 @@ function anagram(input) {
 let input = ["cook", "save", "taste", "aves", "vase", "state", "map"];
 const result = anagram(input);
 
-for (let i = 0; i < result.length; i++) {
-  console.log(result[i]);
-}
+console.log(result);
+
